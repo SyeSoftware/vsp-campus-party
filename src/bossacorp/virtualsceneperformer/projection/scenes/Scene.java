@@ -2,6 +2,7 @@ package bossacorp.virtualsceneperformer.projection.scenes;
 
 import java.util.logging.Level;
 
+import bossacorp.virtualsceneperformer.fx.basics.Sketch;
 import bossacorp.virtualsceneperformer.utils.GlobalSettings.ImageEffectType;
 import bossacorp.virtualsceneperformer.utils.GlobalSettings.InterfaceType;
 import bossacorp.virtualsceneperformer.utils.VSPSystemLogger;
@@ -13,10 +14,14 @@ public class Scene implements IScene {
 	private SceneConfiguration sceneConfiguration;
 	private InterfaceType interfaz;
 	String image;
+	String deviceName;
+	PApplet parent;
 	ImageEffectType effect;
+	Sketch sketch;
 	
-	public Scene(PApplet p, SceneConfiguration config){
+	public Scene(PApplet parent, SceneConfiguration config){
 		sceneConfiguration = config;
+		this.parent = parent;
 		setUpScene();
 	}
 
@@ -26,24 +31,17 @@ public class Scene implements IScene {
 								    
 			image = sceneConfiguration.getResourceList().get(i).getLocation();
 			
-			effect = sceneConfiguration.getResourceList().get(i).getFxConfiguration().getImageFxType();
+			//effect = sceneConfiguration.getResourceList().get(i).getFxConfiguration().getImageFxType();
 			
 			interfaz = sceneConfiguration.getResourceList().get(i).getFxConfiguration().getInterfaceType();
-			String deviceName = sceneConfiguration.getResourceList().get(i).getFxConfiguration().getControllerName();
 			
-			//VSPSystemLogger.getLogger().log(Level.INFO, "XML Script DeviceName - " + deviceName);
+			deviceName = sceneConfiguration.getResourceList().get(i).getFxConfiguration().getControllerName();
+			
 			System.out.println("Image: " + image + ", effect: " + effect + ", interface: " + interfaz + ", device: " + deviceName);
-								
-			switch(interfaz){
-			case MIDI:
-				break;
-			case CAMERAS:
-				break;
-			case OSC:
-				break;
-			case NONE:
-				break;
-			}
+			
+			VSPSystemLogger.getLogger().log(Level.INFO, "Image: " + image + ", effect: " + effect + ", interface: " + interfaz + ", device: " + deviceName);
+			
+			sketch = new Sketch(parent, image, deviceName);
 			
 		}
 
@@ -52,7 +50,7 @@ public class Scene implements IScene {
 
 	@Override
 	public void drawScene() {
-		
+		sketch.draw();
 	}
 	
 	@Override

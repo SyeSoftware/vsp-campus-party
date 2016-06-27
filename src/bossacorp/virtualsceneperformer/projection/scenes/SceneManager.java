@@ -18,12 +18,13 @@ public class SceneManager {
 	public SceneManager(PApplet p) {
 		parent = p;			
 		
+		scenes = new ArrayList<IScene>();
 		for(int i = 0; i < ConfigManager.getInstance().getProductConfiguration().getSceneList().size(); i++){
 			Scene scene = new Scene(parent, ConfigManager.getInstance().getProductConfiguration().getSceneList().get(i));
-			//scenes.add(scene);
+			scenes.add(scene);
 		}
-		//currentSceneIndex = 0;
-		//currentScene = scenes.get(currentSceneIndex);
+		currentSceneIndex = 0;
+		currentScene = scenes.get(currentSceneIndex);
 		
 	}
 	

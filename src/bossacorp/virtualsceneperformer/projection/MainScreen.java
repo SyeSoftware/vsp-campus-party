@@ -20,7 +20,6 @@ public class MainScreen extends PApplet{
 	
 	public void settings(){
 		size(1000,500);//Por ahorita estoy dejando este tama�o para poder ver el log 
-		//MidiManager.getInstance().setUp();
 		//fullScreen();
 	}
 	
@@ -31,7 +30,7 @@ public class MainScreen extends PApplet{
 	
 	public void draw() { 
 		 background(255);
-		 sceneManager.getCurrentScene();
+		 sceneManager.getCurrentScene().drawScene();;
 		 
 	}
 	
