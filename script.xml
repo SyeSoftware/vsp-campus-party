@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+   <obra name="CadaVerano" autor="dubStudio" projectionHandler = "KEYBOARD">
+   
+   	   <scene id="1" name="Scene 1">
+   	   		<resource type="imagen" name="background">
+	   			<srcLocation>images/background.jpg</srcLocation>
+	   			<effect type="BACKGROUND"  interfaz ="NONE" controller="NONE" port="NONE" />	
+	   		</resource> 
+   	   	
+	   	    <resource type="imagen" name="sheeds">
+	   			<srcLocation>images/seed.png</srcLocation>
+	   			<effect type="SEEDS"  interfaz ="NONE" controller="NONE" port="NONE" />	
+	   		</resource> 
+	   		
+	   		<resource type="imagen" name="tree">
+	   			<srcLocation>images/sheet.png</srcLocation>
+	   			<effect type="TREE"  interfaz ="MIDI" controller="ORGAN" port="USB MIDI Interface" />	
+	   		</resource>
+	   		
+	   		<resource type="imagen" name="background">
+	   			<srcLocation>images/field.png</srcLocation>
+	   			<effect type="FIELD"  interfaz ="NONE" controller="NONE" port="NONE" />	
+	   		</resource> 
+	   	
+	   	</scene> 
+	   		   	
+   </obra>
